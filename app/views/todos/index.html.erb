@@ -1,0 +1,16 @@
+<%= link_to "Create a new Todo", new_todo_path %>
+<ul>
+  <% @todos.each do |todo| %>
+    <li>
+      <% if todo.completed %>
+        <del>
+      <% end %>
+      <%= todo.text%>
+      <%= link_to "Edit", edit_todo_path(todo) %> |
+      <%= link_to "Delete", todo_path(todo), method: :delete %>
+      <% if todo.completed %>
+        </del>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
